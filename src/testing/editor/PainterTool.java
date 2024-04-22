@@ -19,7 +19,7 @@ public enum PainterTool{
             if(!Structs.inBounds(x, y, painter.width(), painter.height())) return;
 
             Tile tile = painter.tile(x, y);
-            painter.drawBlock = tile.block() == Blocks.air || !tile.block().inEditor ? tile.overlay() == Blocks.air ? tile.floor() : tile.overlay() : tile.block();
+            painter.setDrawBlock(tile.block() == Blocks.air || !tile.block().inEditor ? tile.overlay() == Blocks.air ? tile.floor() : tile.overlay() : tile.block());
         }
     },
     line("replace", "orthogonal"){

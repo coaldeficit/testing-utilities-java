@@ -12,6 +12,8 @@ import arc.scene.ui.*;
 import arc.scene.ui.layout.*;
 import arc.struct.*;
 import arc.util.*;
+import blui.*;
+import blui.ui.*;
 import mindustry.content.*;
 import mindustry.core.*;
 import mindustry.game.EventType.*;
@@ -54,15 +56,15 @@ public class BlockDialog extends TUBaseDialog{
         cont.pane(all -> all.add(selection)).fillX().row();
 
         cont.table(t -> {
-            TUElements.imageButton(
-                t, TUIcons.get(Icon.defense), TUStyles.lefti, TUVars.buttonSize,
+            BLElements.imageButton(
+                t, TUIcons.get(Icon.defense), TUStyles.lefti, BLVars.buttonSize,
                 () -> teamDialog.show(placeTeam, team -> placeTeam = team),
                 () -> bundle.format("tu-unit-menu.set-team", "[#" + placeTeam.color + "]" + teamName() + "[]"),
                 "@tu-tooltip.block-set-team"
             );
 
-            TUElements.imageButton(
-                t, TUIcons.get(Icon.map), TUStyles.toggleRighti, TUVars.buttonSize,
+            BLElements.imageButton(
+                t, TUIcons.get(Icon.map), TUStyles.toggleRighti, BLVars.buttonSize,
                 () -> {
                     hide();
                     expectingPos = true;
@@ -73,16 +75,16 @@ public class BlockDialog extends TUBaseDialog{
         }).padTop(6).row();
 
         cont.table(p -> {
-            ImageButton rb = TUElements.imageButton(
-                p, TUIcons.get(Icon.up), TUStyles.lefti, TUVars.buttonSize,
+            ImageButton rb = BLElements.imageButton(
+                p, TUIcons.get(Icon.up), TUStyles.lefti, BLVars.buttonSize,
                 () -> rotation = Mathf.mod(rotation - 1, 4),
                 null, "@tu-tooltip.block-rotate"
             ).get();
             rb.setDisabled(() -> !block.rotate);
             rb.update(() -> ((TextureRegionDrawable)(rb.getStyle().imageUp)).setRegion(getDirection()));
 
-            ImageButton pb = TUElements.imageButton(
-                p, new TextureRegionDrawable(block.uiIcon), TUStyles.centeri, TUVars.buttonSize,
+            ImageButton pb = BLElements.imageButton(
+                p, new TextureRegionDrawable(block.uiIcon), TUStyles.centeri, BLVars.buttonSize,
                 this::placeBlock,
                 () -> "@tu-block-menu.place",
                 "@tu-tooltip.block-place"
@@ -92,16 +94,16 @@ public class BlockDialog extends TUBaseDialog{
                 ((TextureRegionDrawable)(pb.getStyle().imageUp)).setRegion(block.uiIcon);
             });
 
-            ImageButton cb = TUElements.imageButton(
-                p, TUIcons.get(Icon.cancel), TUStyles.righti, TUVars.buttonSize,
+            ImageButton cb = BLElements.imageButton(
+                p, TUIcons.get(Icon.cancel), TUStyles.righti, BLVars.buttonSize,
                 this::deleteBlock,
                 () -> "@tu-block-menu.delete",
                 "@tu-tooltip.block-delete"
             ).get();
         }).padTop(6f).row();
 
-        ImageButton pb = TUElements.imageButton(
-            cont, TUIcons.get(Icon.terrain), Styles.defaulti, TUVars.buttonSize,
+        ImageButton pb = BLElements.imageButton(
+            cont, TUIcons.get(Icon.terrain), Styles.defaulti, BLVars.buttonSize,
             () -> {
                 Setup.terrainFrag.show();
                 hide();
@@ -203,7 +205,7 @@ public class BlockDialog extends TUBaseDialog{
                         block = b;
                     }
                 });
-                TUElements.boxTooltip(image, b.localizedName);
+                BLElements.boxTooltip(image, b.localizedName);
 
                 if((++count) % cols == 0){
                     list.row();

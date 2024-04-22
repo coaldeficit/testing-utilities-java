@@ -8,9 +8,10 @@ import arc.scene.ui.*;
 import arc.scene.ui.TextField.*;
 import arc.scene.ui.layout.*;
 import arc.util.*;
+import blui.*;
+import blui.ui.*;
 import mindustry.game.*;
 import mindustry.graphics.*;
-import testing.ui.*;
 import testing.util.*;
 
 import static arc.Core.*;
@@ -42,7 +43,7 @@ public class TeamDialog extends TUBaseDialog{
         all.table(t -> {
             t.add("@tu-unit-menu.teams-id").right().color(Pal.accent);
 
-            TextField tField = TUElements.textField(
+            TextField tField = BLElements.textField(
                 String.valueOf(curTeam.id),
                 text -> {
                     Team team = Team.get(Strings.parseInt(text));
@@ -53,7 +54,7 @@ public class TeamDialog extends TUBaseDialog{
                 TextFieldFilter.digitsOnly,
                 Strings::canParsePositiveInt
             );
-            t.add(tField).left().padLeft(6).width(TUVars.fieldWidth);
+            t.add(tField).left().padLeft(6).width(BLVars.fieldWidth);
         }).left().padBottom(6);
         all.row();
 
@@ -107,7 +108,7 @@ public class TeamDialog extends TUBaseDialog{
             curTeam = team;
             hide();
         });
-        TUElements.boxTooltip(image, () -> teamName(team));
+        BLElements.boxTooltip(image, () -> teamName(team));
     }
 
     public String teamName(Team team){

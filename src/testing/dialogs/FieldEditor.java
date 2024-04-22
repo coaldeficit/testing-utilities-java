@@ -13,6 +13,7 @@ import arc.scene.ui.TreeElement.*;
 import arc.scene.ui.layout.*;
 import arc.struct.*;
 import arc.util.*;
+import blui.ui.*;
 import mindustry.*;
 import mindustry.content.*;
 import mindustry.ctype.Content.*;
@@ -26,7 +27,6 @@ import mindustry.ui.dialogs.*;
 import mindustry.world.blocks.*;
 import mindustry.world.blocks.legacy.*;
 import mindustry.world.meta.*;
-import testing.ui.*;
 
 import java.lang.reflect.*;
 
@@ -143,7 +143,7 @@ public class FieldEditor extends BaseDialog{
                         rebuildFields();
                     }
                 });
-                TUElements.boxTooltip(image, u.localizedName);
+                BLElements.boxTooltip(image, u.localizedName);
 
                 if((++count) % cols == 0){
                     list.row();

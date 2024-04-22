@@ -6,21 +6,28 @@
 [![Discord](https://img.shields.io/discord/704355237246402721.svg?logo=discord&logoColor=white&logoWidth=20&labelColor=8a1a1a&label=Avant)](https://discord.gg/V6ygvgGVqE)
 [![Stars](https://img.shields.io/github/stars/MEEPofFaith/testing-utilities-java?label=Star%20the%20mod%20here%21&style=social)]()
 
-Just some small utilities for sandbox/modding
+Several useful utilities for testing stuff in sandbox:
 
-- Team Changer: Change teams easilty. (Disabled in campaign)
-- Seppuku Button: Kill yourself. Press and hold to commit crawler. A setting to make the death instant can be found in game settings.
-- Clone Button: Instantly clones your player unit. Press and hold to mass clone. (Disabled in campaign)
-- Heal Button: Sets your player unit's hp to its max. (Disabled in campaign)
-- Invincibility Button: Sets your player unit's hp to infinity. (Disabled in campaign)
-- Sandbox/Survival Button: Toggles infinite resources. (Disabled in campaign)
-- Fill/Dump Core: Fill or empty your core of all items. Hold to swap. (Disabled in campaign)
-- Status Menu: Apply/clear status effects to yourself. (Disabled in campaign)
-- Weather Menu: Start/stop weather. (Disabled in campaign)
-- Unit Menu: Spawn units or transform into a different unit. Includes a wave selector. (Disabled in campaign)
-- Block Menu: Place blocks anywhere, even ones you're supposed to. (Disabled in campaign)
-- [sk7725/whynotteleport](https://github.com/sk7725/WhyNotTeleport): Alt + Click to teleport to your cursor. Sorry if your on mobile. (Disabled in campaign)
+- Team Changer - Change teams easilty.
+- Self Destruct - Kill yourself. Press and hold to repeat. (Enabled in campaign)
+- Clone - Clones the unit you're controlling. Press and hold to repeat.
+- Heal/Invincibility - Heal yourself, or make yourself invincible.
+- Sandbox/Survival Button - Toggles infinite resources.
+- Fill/Dump Core - Fill or empty your core of all items. Press and hold to swap between filling and emptying.
+- Status Menu - Apply/clear status effects to yourself.
+- Environment Menu - Change the environment and start/stop weather.
+- Light Switch - Toggles ambient lighting. Press and hold to change color.
+- Unit Menu - Spawn units or transform into a different unit.
+  - Wave selector - Change the current wave and send multiple at once.
+- Block Menu - Place any block anywhere.
+  - Terrain Painter - Draw terrain just like in the editor.
+- [sk7725/whynotteleport](https://github.com/sk7725/WhyNotTeleport): Alt + Click to teleport to your cursor. (Sorry if your on mobile.)
 - Enables console and increases zoom range.
+
+Other non-in-game features:
+
+- Interp Visualizer - Visualzes the various interpolation curves in Interp.
+- Sound Room - Play sounds and music.
 
 Original repo here: [MEEPofFaith/testing-utilities-js](https://github.com/MEEPofFaith/testing-utilities-js).
 

@@ -6,6 +6,8 @@ import arc.scene.ui.TextField.*;
 import arc.scene.ui.layout.*;
 import arc.struct.*;
 import arc.util.*;
+import blui.*;
+import blui.ui.*;
 import mindustry.content.*;
 import mindustry.ctype.*;
 import mindustry.gen.*;
@@ -34,7 +36,7 @@ public class WeatherTable extends Table{
 
         table(set -> {
             set.table(s -> {
-                TUElements.sliderSet(
+                BLElements.sliderSet(
                     s, text -> intensity = Mathf.clamp(Strings.parseFloat(text), 0f, 100f), () -> String.valueOf(intensity),
                     TextFieldFilter.floatsOnly, Strings::canParsePositiveFloat,
                     0f, 100f, 1f, intensity, (n, f) -> {
@@ -46,7 +48,7 @@ public class WeatherTable extends Table{
                 );
                 s.row();
 
-                TUElements.sliderSet(
+                BLElements.sliderSet(
                     s, text -> duration = Strings.parseFloat(text), () -> String.valueOf(duration),
                     TextFieldFilter.floatsOnly, Strings::canParsePositiveFloat,
                     minDur, maxDur, 0.125f, duration, (n, f) -> {
@@ -59,18 +61,18 @@ public class WeatherTable extends Table{
             });
             set.row();
 
-            ImageButton wb = set.button(TUIcons.get(Icon.add), TUVars.buttonSize, this::createWeather).get();
-            TUElements.boxTooltip(wb, "@tu-tooltip.weather-create");
+            ImageButton wb = set.button(TUIcons.get(Icon.add), BLVars.buttonSize, this::createWeather).get();
+            BLElements.boxTooltip(wb, "@tu-tooltip.weather-create");
             wb.label(() -> "@tu-weather-menu.create").padLeft(6).growX();
             wb.setDisabled(() -> intensity <= 0 || duration <= 0);
             set.row();
 
             set.table(b -> {
-                ImageButton rb = b.button(TUIcons.get(Icon.cancel), TUStyles.lefti, TUVars.buttonSize, this::removeWeather).get();
-                TUElements.boxTooltip(rb, "@tu-tooltip.weather-remove");
+                ImageButton rb = b.button(TUIcons.get(Icon.cancel), TUStyles.lefti, BLVars.buttonSize, this::removeWeather).get();
+                BLElements.boxTooltip(rb, "@tu-tooltip.weather-remove");
                 rb.label(() -> "@tu-weather-menu.remove").padLeft(6).growX();
 
-                ImageButton cb = b.button(TUIcons.get(Icon.trash), TUStyles.righti, TUVars.buttonSize, this::clearWeather).get();
+                ImageButton cb = b.button(TUIcons.get(Icon.trash), TUStyles.righti, BLVars.buttonSize, this::clearWeather).get();
                 cb.label(() -> "@tu-weather-menu.clear").padLeft(6).growX();
             });
         }).padTop(6f);

@@ -12,6 +12,7 @@ import mindustry.game.EventType.*;
 import mindustry.game.*;
 import mindustry.world.*;
 import mindustry.world.blocks.environment.*;
+import testing.util.*;
 
 import static mindustry.Vars.*;
 import static testing.util.TUVars.*;
@@ -83,6 +84,11 @@ public class TerrainPainter{
 
     public float brushSize(){
         return drawBlock instanceof SteamVent ? 2 : brushSize;
+    }
+
+    public void setDrawBlock(Block block){
+        drawBlock = block;
+        Setup.terrainFrag.updateMenu();
     }
 
     public void drawBlocksReplace(int x, int y){

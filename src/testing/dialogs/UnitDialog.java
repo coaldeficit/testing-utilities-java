@@ -13,6 +13,8 @@ import arc.scene.ui.TextField.*;
 import arc.scene.ui.layout.*;
 import arc.struct.*;
 import arc.util.*;
+import blui.*;
+import blui.ui.*;
 import mindustry.content.*;
 import mindustry.game.EventType.*;
 import mindustry.game.*;
@@ -58,7 +60,7 @@ public class UnitDialog extends TUBaseDialog{
         cont.pane(all -> all.add(selection)).row();
 
         cont.table(s -> {
-            Element[] elements = TUElements.sliderSet(
+            Element[] elements = BLElements.sliderSet(
                 s, text -> amount = Strings.parseInt(text), () -> String.valueOf(amount),
                 TextFieldFilter.digitsOnly, Strings::canParsePositiveInt,
                 1, maxAmount, 1, amount, (n, f) -> {
@@ -80,7 +82,7 @@ public class UnitDialog extends TUBaseDialog{
             });
             s.row();
 
-            TUElements.sliderSet(
+            BLElements.sliderSet(
                 s, text -> radius = Strings.parseFloat(text), () -> String.valueOf(radius),
                 TextFieldFilter.floatsOnly, Strings::canParsePositiveFloat,
                 minRadius, maxRadius, 0.1f, radius, (n, f) -> {
@@ -93,15 +95,15 @@ public class UnitDialog extends TUBaseDialog{
         }).padTop(6).row();
 
         cont.table(t -> {
-            TUElements.imageButton(
-                t, TUIcons.get(Icon.defense), TUStyles.lefti, TUVars.buttonSize,
+            BLElements.imageButton(
+                t, TUIcons.get(Icon.defense), TUStyles.lefti, BLVars.buttonSize,
                 () -> teamDialog.show(spawnTeam, team -> spawnTeam = team),
                 () -> bundle.format("tu-unit-menu.set-team", "[#" + spawnTeam.color + "]" + teamName() + "[]"),
                 "@tu-tooltip.unit-set-team"
             ).get().setDisabled(() -> net.client());
 
-            TUElements.imageButton(
-                t, TUIcons.get(Icon.map), TUStyles.toggleRighti, TUVars.buttonSize,
+            BLElements.imageButton(
+                t, TUIcons.get(Icon.map), TUStyles.toggleRighti, BLVars.buttonSize,
                 () -> {
                     hide();
                     expectingPos = true;
@@ -112,16 +114,16 @@ public class UnitDialog extends TUBaseDialog{
         }).padTop(6).row();
 
         cont.table(b -> {
-            ImageButton ib = TUElements.imageButton(
-                b, TUIcons.get(Icon.units), TUStyles.lefti, TUVars.buttonSize,
+            ImageButton ib = BLElements.imageButton(
+                b, TUIcons.get(Icon.units), TUStyles.lefti, BLVars.buttonSize,
                 this::transform,
                 () -> "@tu-unit-menu.transform",
                 "@tu-tooltip.unit-transform"
             ).get();
             ib.setDisabled(() -> player.unit().type.internal);
 
-            ImageButton db = TUElements.imageButton(
-                b, TUIcons.alpha, TUStyles.toggleRighti, TUVars.buttonSize,
+            ImageButton db = BLElements.imageButton(
+                b, TUIcons.alpha, TUStyles.toggleRighti, BLVars.buttonSize,
                 () -> despawns = !despawns,
                 () -> "@tu-unit-menu.despawns",
                 "@tu-tooltip.unit-despawns"
@@ -131,15 +133,15 @@ public class UnitDialog extends TUBaseDialog{
         }).padTop(6).row();
 
         cont.table(b -> {
-            TUElements.imageButton(
-                b, TUIcons.get(Icon.add), TUStyles.lefti, TUVars.buttonSize,
+            BLElements.imageButton(
+                b, TUIcons.get(Icon.add), TUStyles.lefti, BLVars.buttonSize,
                 this::spawn,
                 () -> "@tu-unit-menu." + (amount != 1 ? "spawn-plural" : "spawn"),
                 "@tu-tooltip.unit-spawn"
             ).get().setDisabled(() -> net.client());
 
-            TUElements.imageButton(
-                b, TUIcons.get(Icon.waves), TUStyles.toggleRighti, TUVars.buttonSize,
+            BLElements.imageButton(
+                b, TUIcons.get(Icon.waves), TUStyles.toggleRighti, BLVars.buttonSize,
                 () -> waveChangeDialog.show(),
                 () -> "@tu-unit-menu.waves",
                 "@tu-tooltip.unit-set-wave"
@@ -237,7 +239,7 @@ public class UnitDialog extends TUBaseDialog{
                         spawnUnit = u;
                     }
                 });
-                TUElements.boxTooltip(image, u.localizedName);
+                BLElements.boxTooltip(image, u.localizedName);
 
                 if((++count) % cols == 0){
                     list.row();

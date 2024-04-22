@@ -5,11 +5,12 @@ import arc.scene.ui.*;
 import arc.scene.ui.TextField.*;
 import arc.scene.ui.layout.*;
 import arc.util.*;
+import blui.*;
+import blui.ui.*;
 import mindustry.content.*;
 import mindustry.game.*;
 import mindustry.gen.*;
 import mindustry.graphics.*;
-import testing.ui.*;
 import testing.util.*;
 
 import static arc.Core.*;
@@ -28,7 +29,7 @@ public class WaveChangeDialog extends TUBaseDialog{
         cont.add("@tu-unit-menu.wave-range").right();
         cont.table(w -> {
             w.add("@tu-unit-menu.wave-start").left();
-            TextField minField = TUElements.textField(
+            TextField minField = BLElements.textField(
                 String.valueOf(startWave),
                 text -> {
                     startWave = Math.max(Strings.parseInt(text), 1);
@@ -38,11 +39,11 @@ public class WaveChangeDialog extends TUBaseDialog{
                 TextFieldFilter.digitsOnly,
                 Strings::canParsePositiveInt
             );
-            w.add(minField).left().padLeft(6).width(TUVars.fieldWidth);
+            w.add(minField).left().padLeft(6).width(BLVars.fieldWidth);
             w.row();
 
             w.add("@tu-unit-menu.wave-waves").left();
-            TextField maxField = TUElements.textField(
+            TextField maxField = BLElements.textField(
                 String.valueOf(waves),
                 text -> {
                     waves = Math.max(Strings.parseInt(text), 1);
@@ -52,14 +53,14 @@ public class WaveChangeDialog extends TUBaseDialog{
                 TextFieldFilter.digitsOnly,
                 Strings::canParsePositiveInt
             );
-            w.add(maxField).left().padLeft(6).width(TUVars.fieldWidth);
+            w.add(maxField).left().padLeft(6).width(BLVars.fieldWidth);
         }).left();
         cont.row();
         cont.label(() -> bundle.format("tu-unit-menu.wave-current", state.wave)).colspan(2);
         cont.row();
         cont.pane(all).colspan(2);
 
-        TUElements.boxTooltip(
+        BLElements.boxTooltip(
             buttons.button("@tu-unit-menu.wave-send", Icon.upload, this::sendWave).get(),
             "@tu-tooltip.unit-send-wave"
         );
@@ -87,7 +88,7 @@ public class WaveChangeDialog extends TUBaseDialog{
                         if(group.getSpawned(wave) <= 0) continue;
                         w.table(u -> {
                             int a = group.getSpawned(wave) * Utils.countSpawns(group);
-                            u.add(TUElements.itemImage(
+                            u.add(BLElements.itemImage(
                                 new TextureRegionDrawable(group.type.uiIcon),
                                 () -> String.valueOf(a)
                             )).size(8 * 4 * iconMul).top().grow();
@@ -101,7 +102,7 @@ public class WaveChangeDialog extends TUBaseDialog{
                                         e.add(new Image(group.effect.uiIcon).setScaling(Scaling.fit)).size(8 * 2 * iconMul);
                                     }
                                     if(hasShield){
-                                        e.add(TUElements.itemImage(
+                                        e.add(BLElements.itemImage(
                                             Icon.defense,
                                             () -> Utils.round(group.getShield(wave)),
                                             Pal.accentBack,

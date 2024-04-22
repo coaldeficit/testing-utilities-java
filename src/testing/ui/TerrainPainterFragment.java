@@ -12,6 +12,7 @@ import arc.scene.ui.*;
 import arc.scene.ui.layout.*;
 import arc.struct.*;
 import arc.util.*;
+import blui.ui.*;
 import mindustry.content.*;
 import mindustry.editor.*;
 import mindustry.game.EventType.*;
@@ -26,8 +27,9 @@ import testing.editor.*;
 import testing.util.*;
 
 import static arc.Core.*;
+import static blui.BLVars.*;
 import static mindustry.Vars.*;
-import static testing.ui.TUDialogs.teamDialog;
+import static testing.ui.TUDialogs.*;
 import static testing.util.TUVars.*;
 
 public class TerrainPainterFragment{
@@ -185,7 +187,7 @@ public class TerrainPainterFragment{
 
                 all.row();
 
-                TUElements.imageButton(
+                BLElements.imageButton(
                     all, TUIcons.get(Icon.defense), Styles.defaulti, buttonSize,
                     () -> teamDialog.show(painter.drawTeam, team -> painter.drawTeam = team),
                     () -> bundle.format("tu-unit-menu.set-team", "[#" + painter.drawTeam.color + "]" + teamDialog.teamName(painter.drawTeam) + "[]"),
@@ -209,7 +211,7 @@ public class TerrainPainterFragment{
                 all.stack(slider, label).width(sliderWidth).padTop(4f);
                 all.row();
 
-                TUElements.imageButton(
+                BLElements.imageButton(
                     all, TUIcons.get(Icon.terrain), Styles.defaulti, buttonSize,
                     () -> painter.flushCliffs(),
                     () -> "@tu-painter.cliffs",
@@ -218,7 +220,7 @@ public class TerrainPainterFragment{
 
                 all.row();
 
-                TUElements.imageButton(
+                BLElements.imageButton(
                     all, TUIcons.get(Icon.left), Styles.defaulti, buttonSize,
                     this::hide,
                     () -> "@close",
@@ -236,8 +238,12 @@ public class TerrainPainterFragment{
         //Disable pause menu when open and display message
         ui.paused.shown(() -> {
             if(show){
-                ui.showInfoFade("@tu-painter.paused");
-                Core.app.post(() -> ui.paused.hide());
+                app.post(() -> ui.paused.hide());
+                if(mobile){
+                    ui.showInfoPopup("@tu-painter.paused", 7, Align.center, 0, 0, 0,0);
+                }else{
+                    hide();
+                }
             }
         });
 
@@ -263,15 +269,14 @@ public class TerrainPainterFragment{
         return show;
     }
 
-    private void rebuild(){ //TODO switching between terrain blocks and buildings
+    private void rebuild(){
         selection.clear();
         String text = search.getText();
 
         Seq<Block> array = content.blocks()
             .select(b ->
-                blockFilter(b) &&
-                    (!b.isHidden() || settings.getBool("tu-show-hidden")) &&
-                    (text.isEmpty() || b.localizedName.toLowerCase().contains(text.toLowerCase()))
+                blockFilter(b)
+                    && (text.isEmpty() || b.localizedName.toLowerCase().contains(text.toLowerCase()))
             );
         if(array.size == 0) return;
 
@@ -302,13 +307,18 @@ public class TerrainPainterFragment{
                         painter.drawBlock = b;
                     }
                 });
-                TUElements.boxTooltip(image, b.localizedName);
+                BLElements.boxTooltip(image, b.localizedName);
 
                 if((++count) % cols == 0){
                     list.row();
                 }
             }
         }).fillX().left().padBottom(10);
+    }
+
+    public void updateMenu(){
+        buildings = isBuilding(painter.drawBlock);
+        rebuild();
     }
 
     private boolean blockFilter(Block b){
@@ -326,16 +336,16 @@ public class TerrainPainterFragment{
                 b instanceof TreeBlock ||
                 b instanceof TallBlock ||
                 b instanceof Cliff
-        ) &&
-            !b.isAir() && (b.inEditor || b == Blocks.cliff) && b != Blocks.spawn;
+        ) && !b.isAir() && (b.inEditor || b == Blocks.cliff) && b != Blocks.spawn;
     }
 
     private boolean isBuilding(Block b){
-        return !b.isFloor() && !b.isStatic() &&
-            !(b instanceof Prop) &&
-            !(b instanceof TallBlock) &&
-            !(b instanceof TreeBlock) &&
-            !(b instanceof ConstructBlock) &&
-            !(b instanceof LegacyBlock);
+        return !b.isFloor() && !b.isStatic()
+            && !(b instanceof Prop)
+            && !(b instanceof TallBlock)
+            && !(b instanceof TreeBlock)
+            && !(b instanceof ConstructBlock)
+            && !(b instanceof LegacyBlock)
+            && (!b.isHidden() || settings.getBool("tu-show-hidden"));
     }
 }

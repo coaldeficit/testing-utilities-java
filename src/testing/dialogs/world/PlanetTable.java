@@ -3,6 +3,8 @@ package testing.dialogs.world;
 import arc.scene.ui.*;
 import arc.scene.ui.layout.*;
 import arc.struct.*;
+import blui.*;
+import blui.ui.*;
 import mindustry.*;
 import mindustry.content.*;
 import mindustry.gen.*;
@@ -28,12 +30,12 @@ public class PlanetTable extends Table{
         pane(all -> all.add(selection)).row();
 
         table(b -> {
-            ImageButton pb = b.button(TUIcons.get(Icon.editor), TUStyles.lefti, TUVars.buttonSize, this::setPlanet).get();
-            TUElements.boxTooltip(pb, "@tu-tooltip.planet-set");
+            ImageButton pb = b.button(TUIcons.get(Icon.editor), TUStyles.lefti, BLVars.buttonSize, this::setPlanet).get();
+            BLElements.boxTooltip(pb, "@tu-tooltip.planet-set");
             pb.label(() -> "@tu-planet-menu.set").padLeft(6).growX();
 
-            ImageButton tb = b.button(TUIcons.get(Icon.book), TUStyles.righti, TUVars.buttonSize, this::setPlanetRules).get();
-            TUElements.boxTooltip(tb, "@tu-tooltip.planet-rules");
+            ImageButton tb = b.button(TUIcons.get(Icon.book), TUStyles.righti, BLVars.buttonSize, this::setPlanetRules).get();
+            BLElements.boxTooltip(tb, "@tu-tooltip.planet-rules");
             tb.setDisabled(() -> planet == null);
             tb.label(() -> "@tu-planet-menu.rules").padLeft(6).growX();
         }).padTop(6f);

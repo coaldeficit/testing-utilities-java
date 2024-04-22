@@ -2,6 +2,8 @@ package testing.buttons;
 
 import arc.scene.ui.*;
 import arc.scene.ui.layout.*;
+import blui.*;
+import blui.ui.*;
 import mindustry.content.*;
 import mindustry.gen.*;
 import testing.ui.*;
@@ -51,12 +53,12 @@ public class Health{
     }
 
     public static void healing(Table t){
-        Cell<ImageButton> i = t.button(TUIcons.heal, TUStyles.tuImageStyle, TUVars.iconSize, () -> {
+        Cell<ImageButton> i = t.button(TUIcons.heal, TUStyles.tuImageStyle, BLVars.iconSize, () -> {
             heal(false);
         }).growX();
 
         ImageButton b = i.get();
-        TUElements.boxTooltip(b, "@tu-tooltip.button-heal");
+        BLElements.boxTooltip(b, "@tu-tooltip.button-heal");
         b.update(() -> {
             b.setColor(player.team().color != null ? player.team().color : TUVars.curTeam.color);
         });
@@ -64,12 +66,12 @@ public class Health{
     }
 
     public static void invincibility(Table t){
-        Cell<ImageButton> i = t.button(TUIcons.invincibility, TUStyles.tuImageStyle, TUVars.iconSize, () -> {
+        Cell<ImageButton> i = t.button(TUIcons.invincibility, TUStyles.tuImageStyle, BLVars.iconSize, () -> {
             heal(true);
         }).growX();
 
         ImageButton b = i.get();
-        TUElements.boxTooltip(b, "@tu-tooltip.button-invincibility");
+        BLElements.boxTooltip(b, "@tu-tooltip.button-invincibility");
         b.update(() -> {
             b.setColor(player.team().color != null ? player.team().color : TUVars.curTeam.color);
         });

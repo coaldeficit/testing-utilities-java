@@ -2,6 +2,7 @@ package testing.ui;
 
 import arc.*;
 import testing.dialogs.*;
+import testing.dialogs.sound.*;
 import testing.dialogs.world.*;
 
 public class TUDialogs{

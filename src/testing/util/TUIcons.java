@@ -11,6 +11,8 @@ public class TUIcons{
     survival, sandbox,
     heal, invincibility,
     weather,
+    sounds, musics, stop,
+    lightOff, lightOn,
     alpha;
 
     public static void init(){
@@ -23,6 +25,11 @@ public class TUIcons{
         heal = get("heal");
         invincibility = get("invincibility");
         weather = get("weather");
+        sounds = get("sounds");
+        musics = get("musics");
+        stop = get("stop");
+        lightOff = get("light-off");
+        lightOn = get("light-on");
         alpha = new TextureRegionDrawable(UnitTypes.alpha.uiIcon);
     }
 
