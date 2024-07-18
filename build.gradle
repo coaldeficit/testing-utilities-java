@@ -17,7 +17,10 @@ java{
 
 ext{
     //the build number that this mod is made for
+    mindustryBE = true
     mindustryVersion = 'v146'
+    mindustryBEVersion = '867ca8525b'
+    mindustryBEArc = 'b857594d11'
     jabelVersion = "93fde537c7"
     bluiVersion = "v3"
     //windows sucks
@@ -33,8 +36,16 @@ allprojects{
 }
 
 dependencies{
-    compileOnly "com.github.Anuken.Arc:arc-core:$mindustryVersion"
-    compileOnly "com.github.Anuken.Mindustry:core:$mindustryVersion"
+    if(mindustryBE){
+        print("Compiling with BE")
+        compileOnly "com.github.Anuken.Arc:arc-core:$mindustryBEArc"
+        compileOnly "com.github.Anuken.MindustryJitpack:core:$mindustryBEVersion"
+    }else{
+        print("Compiling with Version")
+        compileOnly "com.github.Anuken.Arc:arc-core:$mindustryVersion"
+        compileOnly "com.github.Anuken.Mindustry:core:$mindustryVersion"
+    }
+
 
     annotationProcessor "com.github.Anuken:jabel:$jabelVersion"
 
