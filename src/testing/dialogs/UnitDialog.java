@@ -249,20 +249,6 @@ public class UnitDialog extends TUBaseDialog{
     }
 
     void spawn(){
-        if(input.shift()){
-            Utils.copyJS("""
-                for(int i = 0; i < @; i++){
-                    float r = @ * tilesize * Mathf.sqrt(Mathf.random());
-                    Tmp.v1.setToRandomDirection().setLength(r).add(@, @);
-                    Vars.content.unit(@).spawn(Team.get(@), Tmp.v1);
-                }
-                """,
-                amount, radius, spawnPos.x, spawnPos.y, spawnUnit.id, spawnTeam.id
-            );
-
-            return;
-        }
-
         for(int i = 0; i < amount; i++){
             float r = radius * tilesize * Mathf.sqrt(Mathf.random());
             Tmp.v1.setToRandomDirection().setLength(r).add(spawnPos);
@@ -271,23 +257,7 @@ public class UnitDialog extends TUBaseDialog{
     }
 
     void transform(){
-        if(net.client()){ //For 2r2t
-            Utils.runCommand("transform @", spawnUnit.name);
-        }else if(player.unit() != null){
-            if(input.shift()){
-                Utils.copyJS("""
-                    let u = Vars.content.unit(@).spawn(Vars.player.team(), Vars.player);
-                    let rot = Vars.player.unit().rotation;
-                    u.controller(Vars.player);
-                    u.rotation = rot;
-                    @Fx.unitControl.at(u, true);
-                    """,
-                    spawnUnit.id, despawns ? "u.spawnedByCore = true;\n" : ""
-                );
-
-                return;
-            }
-
+        if(player.unit() != null){
             Unit u = spawnUnit.spawn(player.team(), player);
             float rot = player.unit().rotation;
             u.controller(player);
@@ -296,7 +266,6 @@ public class UnitDialog extends TUBaseDialog{
             Fx.unitControl.at(u, true);
         }
         hide();
-
     }
 
     String teamName(){
