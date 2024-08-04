@@ -19,8 +19,8 @@ ext{
     //the build number that this mod is made for
     mindustryBE = true
     mindustryVersion = 'v146'
-    mindustryBEVersion = '867ca8525b'
-    mindustryBEArc = 'b857594d11'
+    mindustryBEVersion = 'b0c122a37a'
+    mindustryBEArc = '6676d38433'
     jabelVersion = "93fde537c7"
     bluiVersion = "v3"
     //windows sucks
