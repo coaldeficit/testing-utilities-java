@@ -148,7 +148,8 @@ public class StatusDialog extends TUBaseDialog{
             return;
         }
 
-        player.unit().clearStatuses();
+        Unit u = player.unit();
+        if(u != null) u.clearStatuses();
     }
 
     public StatusEffect getStatus(){
