@@ -52,6 +52,10 @@ public class TestUtils extends Mod{
             "impact0078", "desolateRift", "nuclearComplex", "planetaryTerminal",
             "coastline", "navalFortress",
 
+            "atolls","canyon","cruxscape","facility32m","frontier","geothermalStronghold",
+            "infestedCanyons","mycelialBastion","polarAerodrome","seaPort","taintedWoods",
+            "testingGrounds","weatheredChannels",
+
             "onset", "aegis", "lake", "intersect", "basin", "atlas", "split", "marsh", "peaks", "ravine", "caldera-erekir",
             "stronghold", "crevice", "siege", "crossroads", "karst", "origin"
         );
