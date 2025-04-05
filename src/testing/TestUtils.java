@@ -30,7 +30,7 @@ public class TestUtils extends Mod{
         if(mobile) loadLogger();
 
         //Add campaign maps to custom maps list
-        Seq<String> mapNames = new Seq<>();
+        Seq<String> mapNames = new Seq<>(); // this comment exists to make github actions do a thing
         mapNames.addAll( //Sectors aren't loaded yet, need to hardcode
             "groundZero",
             "craters", "biomassFacility", "frozenForest", "ruinousShores", "windsweptIslands", "stainedMountains", "tarFields",
