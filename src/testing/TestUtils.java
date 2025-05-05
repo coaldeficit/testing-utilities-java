@@ -42,7 +42,7 @@ public class TestUtils extends Mod{
             "infestedCanyons","mycelialBastion","polarAerodrome","seaPort","taintedWoods",
             "testingGrounds","weatheredChannels",
 
-            "serpulo-12","serpulo-25","serpulo-68","serpulo-82","serpulo-173","serpulo-240","serpulo-241","serpulo-243",
+            "hidden/serpulo-12","hidden/serpulo-25","hidden/serpulo-68","hidden/serpulo-82","hidden/serpulo-173","hidden/serpulo-240","hidden/serpulo-241","hidden/serpulo-243",
 
             "onset", "aegis", "lake", "intersect", "basin", "atlas", "split", "marsh", "peaks", "ravine", "caldera-erekir",
             "stronghold", "crevice", "siege", "crossroads", "karst", "origin"
