@@ -34,7 +34,7 @@ public class TestUtils extends Mod{
         mapNames.addAll( //Sectors aren't loaded yet, need to hardcode
             // default
             "default/maze","default/fortress","default/labyrinth","default/islands","default/tendrils","default/caldera","default/wasteland","default/shattered","default/fork",
-            "default/triad","default/mudFlats","default/moltenLake","default/archipelago","default/debrisField","default/domain","default/veins","default/glacier","default/passage"
+            "default/triad","default/mudFlats","default/moltenLake","default/archipelago","default/debrisField","default/domain","default/veins","default/glacier","default/passage",
             
             // serpulo
             "serpulo/groundZero",
