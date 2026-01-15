@@ -35,6 +35,7 @@ public class TestUtils extends Mod{
             // default
             "default/maze","default/fortress","default/labyrinth","default/islands","default/tendrils","default/caldera","default/wasteland","default/shattered","default/fork",
             "default/triad","default/mudFlats","default/moltenLake","default/archipelago","default/debrisField","default/domain","default/veins","default/glacier","default/passage",
+            "default/canyon",
             
             // serpulo
             "serpulo/groundZero",
@@ -44,7 +45,7 @@ public class TestUtils extends Mod{
             "serpulo/coastline", "serpulo/navalFortress",
 
             // serpulo expansion
-            "serpulo/atolls","serpulo/canyon","serpulo/cruxscape","serpulo/facility32m","serpulo/fallenVessel","serpulo/frontier","serpulo/geothermalStronghold",
+            "serpulo/atolls","serpulo/cruxscape","serpulo/facility32m","serpulo/fallenVessel","serpulo/frontier","serpulo/geothermalStronghold",
             "serpulo/infestedCanyons","serpulo/mycelialBastion","serpulo/perilousHarbor","serpulo/sunkenPier","serpulo/taintedWoods",
             "serpulo/testingGrounds","serpulo/weatheredChannels",
 
