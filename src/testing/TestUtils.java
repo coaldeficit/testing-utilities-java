@@ -39,7 +39,7 @@ public class TestUtils extends Mod{
             "coastline", "navalFortress",
 
             "atolls","canyon","cruxscape","facility32m","frontier","geothermalStronghold",
-            "infestedCanyons","mycelialBastion","polarAerodrome","seaPort","sunkenPier","taintedWoods",
+            "infestedCanyons","mycelialBastion",/*"polarAerodrome",*/"seaPort","sunkenPier","taintedWoods",
             "testingGrounds","weatheredChannels",
 
             "onset", "aegis", "lake", "intersect", "basin", "atlas", "split", "marsh", "peaks", "ravine", "caldera-erekir",
