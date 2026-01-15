@@ -49,7 +49,11 @@ public class TestUtils extends Mod{
             "serpulo/testingGrounds","serpulo/weatheredChannels",
 
             // serpulo hidden
-            //"serpulo/0",
+            "serpulo/hidden/0","serpulo/hidden/6","serpulo/hidden/13","serpulo/hidden/16","serpulo/hidden/19","serpulo/hidden/20","serpulo/hidden/24","serpulo/hidden/30","serpulo/hidden/47",
+            "serpulo/hidden/55","serpulo/hidden/66","serpulo/hidden/67","serpulo/hidden/69","serpulo/hidden/76","serpulo/hidden/92","serpulo/hidden/94","serpulo/hidden/103","serpulo/hidden/111",
+            "serpulo/hidden/116","serpulo/hidden/127","serpulo/hidden/133","serpulo/hidden/161","serpulo/hidden/162","serpulo/hidden/176","serpulo/hidden/180","serpulo/hidden/185",
+            "serpulo/hidden/191","serpulo/hidden/192","serpulo/hidden/197","serpulo/hidden/200","serpulo/hidden/207","serpulo/hidden/225","serpulo/hidden/230","serpulo/hidden/240",
+            "serpulo/hidden/248","serpulo/hidden/254","serpulo/hidden/259","serpulo/hidden/263","serpulo/hidden/265",
 
             // erekir
             "erekir/onset", "erekir/aegis", "erekir/lake", "erekir/intersect", "erekir/basin", "erekir/atlas", "erekir/split", "erekir/marsh", "erekir/peaks", "erekir/ravine", "erekir/caldera-erekir",
