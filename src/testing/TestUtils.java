@@ -32,21 +32,32 @@ public class TestUtils extends Mod{
         //Add campaign maps to custom maps list
         Seq<String> mapNames = new Seq<>(); // this comment exists to make github actions do a thing
         mapNames.addAll( //Sectors aren't loaded yet, need to hardcode
-            "groundZero",
-            "craters", "biomassFacility", "frozenForest", "ruinousShores", "windsweptIslands", "stainedMountains", "tarFields",
-            "fungalPass", "extractionOutpost", "saltFlats", "overgrowth",
-            "impact0078", "desolateRift", "nuclearComplex", "planetaryTerminal",
-            "coastline", "navalFortress",
+            // default
+            "default/maze","default/fortress","default/labyrinth","default/islands","default/tendrils","default/caldera","default/wasteland","default/shattered","default/fork",
+            "default/triad","default/mudFlats","default/moltenLake","default/archipelago","default/debrisField","default/domain","default/veins","default/glacier","default/passage"
+            
+            // serpulo
+            "serpulo/groundZero",
+            "serpulo/craters", "serpulo/biomassFacility", "serpulo/frozenForest", "serpulo/ruinousShores", "serpulo/windsweptIslands", "serpulo/stainedMountains", "serpulo/tarFields",
+            "serpulo/fungalPass", "serpulo/extractionOutpost", "serpulo/saltFlats", "serpulo/overgrowth",
+            "serpulo/impact0078", "serpulo/desolateRift", "serpulo/nuclearComplex", "serpulo/planetaryTerminal",
+            "serpulo/coastline", "serpulo/navalFortress",
 
-            "atolls","canyon","cruxscape","facility32m","fallenVessel","frontier","geothermalStronghold",
-            "infestedCanyons","mycelialBastion",/*"polarAerodrome",*/"perilousHarbor","sunkenPier","taintedWoods",
-            "testingGrounds","weatheredChannels",
+            // serpulo expansion
+            "serpulo/atolls","serpulo/canyon","serpulo/cruxscape","serpulo/facility32m","serpulo/fallenVessel","serpulo/frontier","serpulo/geothermalStronghold",
+            "serpulo/infestedCanyons","serpulo/mycelialBastion","serpulo/perilousHarbor","serpulo/sunkenPier","serpulo/taintedWoods",
+            "serpulo/testingGrounds","serpulo/weatheredChannels",
 
-            "onset", "aegis", "lake", "intersect", "basin", "atlas", "split", "marsh", "peaks", "ravine", "caldera-erekir",
-            "stronghold", "crevice", "siege", "crossroads", "karst", "origin"
+            // serpulo hidden
+            //"serpulo/0",
+
+            // erekir
+            "erekir/onset", "erekir/aegis", "erekir/lake", "erekir/intersect", "erekir/basin", "erekir/atlas", "erekir/split", "erekir/marsh", "erekir/peaks", "erekir/ravine", "erekir/caldera-erekir",
+            "erekir/stronghold", "erekir/crevice", "erekir/siege", "erekir/crossroads", "erekir/karst", "erekir/origin"
         );
-        mapNames.addAll((String[])Reflect.get(maps.getClass(), "defaultMapNames"));
+        //mapNames.addAll((String[])Reflect.get(maps.getClass(), "defaultMapNames"));
         Reflect.set(maps.getClass(), "defaultMapNames", mapNames.toArray(String.class));
+        Reflect.set(maps.getClass(), "useDefaultFolder", false);
     }
 
     @Override
