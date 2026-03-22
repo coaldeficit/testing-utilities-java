@@ -39,14 +39,14 @@ public class TestUtils extends Mod{
             
             // serpulo
             "serpulo/groundZero",
-            "serpulo/craters", "serpulo/biomassFacility", "serpulo/frozenForest", "serpulo/ruinousShores", "serpulo/windsweptIslands", "serpulo/stainedMountains", "serpulo/tarFields",
+            "serpulo/crateredBattleground", "serpulo/biomassFacility", "serpulo/frozenForest", "serpulo/ruinousShores", "serpulo/windsweptIslands", "serpulo/stainedMountains", "serpulo/tarFields",
             "serpulo/fungalPass", "serpulo/extractionOutpost", "serpulo/saltFlats", "serpulo/overgrowth",
             "serpulo/impact0078", "serpulo/desolateRift", "serpulo/nuclearComplex", "serpulo/planetaryTerminal",
             "serpulo/coastline", "serpulo/navalFortress",
 
             // serpulo expansion
             "serpulo/atolls","serpulo/cruxscape","serpulo/facility32m","serpulo/fallenVessel","serpulo/frontier","serpulo/geothermalStronghold",
-            "serpulo/infestedCanyons","serpulo/mycelialBastion","serpulo/perilousHarbor","serpulo/sunkenPier","serpulo/taintedWoods",
+            "serpulo/infestedCanyons","serpulo/littoralShipyard","serpulo/mycelialBastion","serpulo/perilousHarbor","serpulo/sunkenPier","serpulo/taintedWoods",
             "serpulo/testingGrounds","serpulo/weatheredChannels",
 
             // serpulo hidden
